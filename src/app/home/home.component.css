@@ -1,0 +1,134 @@
+.intro-2 {
+    background: url("../../img/slider/1.png")no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 600px;
+}
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+
+
+  .basic-container {
+    padding: 30px;
+  }
+  .version-info {
+    font-size: 8pt;
+    float: right;
+  }
+  /**
+    Default Markup
+  **/
+  
+  body {
+    background: #F0E5E1 ;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  
+  /**
+    Component
+  **/
+  
+  label {
+      width: 100%;
+  }
+  
+  .card-input-element {
+      display: none;
+  }
+  
+  .card-input {
+      margin: 10px;
+      padding: 00px;
+  }
+  
+  .card-input:hover {
+      cursor: pointer;
+  }
+  
+  .card-input-element:checked + .card-input  {
+       box-shadow: 0px 4px 0.3125rem 4px rgba(0, 0, 0, 0.3);
+       color: blue;
+      }
+   /* radio input css */
+  
+  .card-text{
+    opacity: 0.5;
+  }
+  button {
+    float: right;
+  }
+  .inputfile:focus + label {
+      outline: 1px dotted #000;
+      outline: -webkit-focus-ring-color auto 5px;
+  }
+  #back {
+    float: left;
+  }
+  
+  /* input file */
+  
+  
+    
+  
+  
+  
+  
+
+.intro_1 {
+position: relative;
+margin-top: -100px;
+}
+
+.intro-3 {
+    background-color: #4b505d ;
+    height: 450px;
+}
+.h1 {
+    font-family: sans-serif;
+    font-size: 36px;
+    letter-spacing: 3px;
+}
+.h3 {
+    font-family: sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+.type_1 {
+    font-size: 19.2px;
+    line-height: 38.4px;
+    text-align: center;
+
+}
+.type_2 {
+    font-size: 14px;
+    line-height: 28px;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+    background-color: #4b505d;
+    color: cornsilk;
+}
+.btn-circle:hover {
+    background-color: cornsilk;
+    color: #4b505d;
+}
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+

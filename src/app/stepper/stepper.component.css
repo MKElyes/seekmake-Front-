@@ -1,0 +1,80 @@
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+.basic-container {
+  padding: 30px;
+}
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+/**
+  Default Markup
+**/
+
+body {
+  background: #F0E5E1 ;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+/**
+  Component
+**/
+
+label {
+    width: 100%;
+}
+
+.card-input-element {
+    display: none;
+}
+
+.card-input {
+    margin: 10px;
+    padding: 00px;
+}
+
+.card-input:hover {
+    cursor: pointer;
+}
+
+.card-input-element:checked + .card-input  {
+     box-shadow: 0px 4px 0.3125rem 4px rgba(0, 0, 0, 0.3);
+     
+    }
+
+button {
+  float: right;
+}
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+#back {
+  float: left;
+}
+
+/* input file */
+
+.hidden-file {
+  visibility: hidden;
+  position: absolute;
+  overflow: hidden;
+  width: 0px;
+  height: 0px;
+  border: none;
+  margin: 0;
+  padding: 0
+}
+  
+
+
+

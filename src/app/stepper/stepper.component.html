@@ -1,0 +1,222 @@
+
+<div class="row justify-content-center">
+  <mat-horizontal-stepper class="col-md-10" labelPosition="bottom"  #stepper="matHorizontalStepper">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup"> 
+      <ng-template matStepLabel>Technique</ng-template>
+      
+      
+      <div class="container-fluid">
+        
+        
+        <div class="row justify-content-center">
+
+            <div class="col-md-3 card-input">
+              <label class="card-input" for="type_1">
+                  <input type="radio"  value="impression" formControlName="product"   class="card-input-element" id="type_1" required/>
+                  <div class="panel panel-default card-input">
+                  <div class="card" style="width: 100%;">
+                    <img src="../../assets/t1.png" style="height: 200px;" class="card-img-top" alt="...">
+                    <div class="card-body mt-2">
+                      <h5 class="card-title">Impression 3D</h5>
+                      <p class="card-text"> L'impression 3D est la fabrication de pièces par agglomération de matière.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+              </label>
+
+            </div>
+            <div class="col-md-3 card-input">
+              
+              <label class="card-input" for="type_2">
+              <input type="radio"  value="fraisage" formControlName="product" class="card-input-element" id="type_2" 
+              required/>
+
+                <div class="panel panel-default card-input">
+                  <div class="card" style="width: 100%;">
+                    <img src="../../assets/t2.png" style="height: 200px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Fraisage</h5>
+                      <p class="card-text"> Le fraisage est l'enlèvement de matière sous forme de copeaux.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </label>
+
+            </div>
+            <div class="col-md-3 card-input">
+              
+              <label class="card-input" for="type_3">
+                  <input type="radio" value="laser" formControlName="product" class="card-input-element" id="type_3" required/>
+
+                <div class="panel panel-default card-input">
+                  <div class="card" style="width: 100%;">
+                    <img src="../../assets/t3.png" style="height: 200px;" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Laser</h5>
+                      <p class="card-text"> La découpe laser consiste à découper la matière grâce au laser.
+                    </div>
+                  </div>
+                </div>
+              </label>
+
+            </div>
+          </div>
+          
+        </div>
+        
+      
+          <div>
+            <button mat-raised-button color="primary"  matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    <mat-step [stepControl]="secondFormGroup " >
+       <form [formGroup]="secondFormGroup">
+      <!-- file Upload -->
+      <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+        
+                        <div class="row">
+        
+                            <div class="col-sm-2 mx-auto">
+                                <span class="hidden-file">
+                      <input type="file" (change)="onFileChange($event)" #fileInput ng2FileSelect [uploader]="uploader"formControlName='file' (onFileSelected)="onFileSelected($event)" />
+                    </span>
+                                <div class="btn-group" (click)="fileInput.click()">
+        
+                                    <button type="button" class="btn btn-primary">
+                         Upload File
+                      </button>
+        
+                                </div>
+                            </div>
+        
+                        </div>
+                        <div class="col-md-9 mt-4 mx-auto">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Size</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of uploader.queue">
+                                        <td>
+                                            {{ item?.file?.name }}
+                                        </td>
+                                        <td>
+                                            {{ item?.file?.size/1024/1024 | number:'.2' }} MB
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger btn-xs" (click)="item.remove()">
+                         <span class="glyphicon glyphicon-trash"></span> 
+                         Remove
+                        </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+        
+       
+        <div class="example-container">
+        <div class="row mb-5">
+        <div class="col-md-3 offset-md-3">
+        <mat-form-field>
+          <input matInput  formControlName="epaisseur" placeholder="épaisseur" required >
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 ">
+          <mat-form-field>
+              <mat-label>Material</mat-label>
+              <select formControlName="drop"  [(value)]="selected" matNativeControl>
+                  <mat-option>None</mat-option>
+                <optgroup label="Impression 3D">
+                  <option value="ABS">ABS</option>
+                  <option value="PLA">PLA</option>
+                </optgroup>
+                <optgroup label="Fraisage">
+                  <option value="Alucobond">Alucobond</option>
+                  <option value="Bois">Bois</option>
+                </optgroup>
+                <optgroup label="Laser">
+                  <option value="MDF">MDF</option>
+                  <option value="Plexiglass">Plexiglass</option>
+                </optgroup>
+              </select>
+            </mat-form-field>
+          <!-- <mat-form-field>
+            <mat-label>Select an option</mat-label>
+            <mat-select formControlName="drop" [(value)]="selected">
+              <mat-option>None</mat-option>
+              <mat-option value="option1">Option 1</mat-option>
+              <mat-option value="option2">Option 2</mat-option>
+              <mat-option value="option3">Option 3</mat-option>
+            </mat-select>
+          </mat-form-field> -->
+        </div>
+      </div>
+
+        </div>
+        <div>
+          <button mat-raised-button color="primary"  (click)="click()" matStepperNext>Next</button>
+          <button mat-raised-button color="primary" id="back"  matStepperPrevious>Back</button>
+          </div>
+        </form>
+    </mat-step>
+    <mat-step  [stepControl]="thirdFormGroup" >
+      <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Information</ng-template>
+  
+          <div class="container">
+            <div class="row justify-content-center">
+          .
+          <mat-form-field class="col-md-6">
+              <input  formControlName="name" matInput placeholder="Nom">
+            </mat-form-field>
+          
+        </div>
+            <div class="row justify-content-center">
+            <mat-form-field class="col-md-6">
+              <input  formControlName="email" matInput placeholder="Email">
+            </mat-form-field>
+            </div>
+            <div class="row justify-content-center">
+            <mat-form-field class="col-md-6">
+             <input  formControlName="phonneNumber" matInput placeholder="Phone number">
+            </mat-form-field>
+            </div>
+            <div class="row justify-content-center">
+            <mat-form-field class="col-md-6">
+              <input  formControlName="address" matInput placeholder="Address"  >
+            </mat-form-field>
+        </div>
+          </div>
+        <div class="mt-5">
+        <button mat-raised-button color="primary" id="back"  matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" (click)=" sendForm()">Send</button>
+        
+      </div>
+    </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+
+
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+  Use of this source code is governed by an MIT-style license that
+  can be found in the LICENSE file at http://angular.io/license -->

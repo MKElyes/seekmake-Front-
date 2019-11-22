@@ -1,0 +1,19 @@
+<table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Technique</th>
+                <th>Status</th>
+                <th>Client Name</th>
+                <th>Client Phone</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let data of requests">
+            <tr>
+                <th scope="row">{{data?.technique}}</th>
+                <td>{{data?.status}}</td>
+                <td>{{data?.userName}}</td>
+                <td>{{data?.userPhone}}</td>
+            </tr>
+        
+        </tbody>
+    </table>
